@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Protectora
+from .models import Core
 
-admin.site.register(Protectora)
+admin.site.register(Core)
