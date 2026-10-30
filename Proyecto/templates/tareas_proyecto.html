@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas del proyecto</title>
+</head>
+<body>
+    <h1>Tareas del proyecto: {{ proyecto.nombre }}</h1>
+
+    {% for tarea in tareas %}
+        <h2>{{ tarea.nombre }}</h2>
+        <p>{{ tarea.descripcion }}</p>
+        <p>Estado: {{ tarea.estado }}</p>
+        <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
+        <hr>
+    {% empty %}
+        <p>Este proyecto no tiene tareas.</p>
+    {% endfor %}
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

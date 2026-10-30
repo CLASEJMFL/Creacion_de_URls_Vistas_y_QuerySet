@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 
+
 from django.contrib import admin
 from django.urls import path
 from Proyecto import views
@@ -23,7 +24,14 @@ from Proyecto import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
+    path('proyectos/', views.lista_proyectos, name='proyectos'),
+    path(
+        'proyectos/<int:proyecto_id>/tareas/',
+        views.tareas_proyecto,
+        name='tareas_proyecto'
+    ),
 ]
+
 
 
 
