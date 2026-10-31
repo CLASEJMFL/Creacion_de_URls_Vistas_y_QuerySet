@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Proyecto, Tarea
+from .models import Proyecto, Tarea, Asignacion
 
 
 def inicio(request):
@@ -22,4 +22,16 @@ def tareas_proyecto(request, proyecto_id):
     return render(request, 'tareas_proyecto.html', {
         'proyecto': proyecto,
         'tareas': tareas
+    })
+    
+def usuarios_tarea(request, tarea_id):
+    tarea = get_object_or_404(Tarea, id=tarea_id)
+
+    asignaciones = Asignacion.objects.filter(
+        tarea=tarea
+    ).order_by('fecha_asignacion')
+
+    return render(request, 'usuarios_tarea.html', {
+        'tarea': tarea,
+        'asignaciones': asignaciones
     })

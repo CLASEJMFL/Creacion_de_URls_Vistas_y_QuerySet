@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios asignados a la tarea</title>
+</head>
+<body>
+    <h1>Usuarios asignados a la tarea: {{ tarea }}</h1>
+
+    {% for asignacion in asignaciones %}
+        <h2>{{ asignacion.usuario }}</h2>
+        <p>Fecha de asignación: {{ asignacion.fecha_asignacion }}</p>
+        <p>Observaciones: {{ asignacion.observaciones }}</p>
+        <hr>
+    {% empty %}
+        <p>No hay usuarios asignados a esta tarea.</p>
+    {% endfor %}
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

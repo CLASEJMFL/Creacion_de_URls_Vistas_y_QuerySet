@@ -25,10 +25,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
     path('proyectos/', views.lista_proyectos, name='proyectos'),
+
+    # Ejercicio 3: tareas de un proyecto
     path(
         'proyectos/<int:proyecto_id>/tareas/',
         views.tareas_proyecto,
         name='tareas_proyecto'
+    ),
+
+    # Ejercicio 4: usuarios asignados a una tarea
+    path(
+        'tareas/<int:tarea_id>/usuarios/',
+        views.usuarios_tarea,
+        name='usuarios_tarea'
     ),
 ]
 
