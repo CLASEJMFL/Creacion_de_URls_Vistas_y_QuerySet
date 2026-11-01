@@ -75,8 +75,18 @@ urlpatterns = [
         name='etiquetas_proyecto'
     ),
 
-
+    #Ejercicio 10
+    path(
+        'usuarios/sin-tareas/',
+        views.usuarios_sin_tareas,
+        name='usuarios_sin_tareas'
+    ),
 ]
+#Ejercicio 11
+handler400 = 'Proyecto.views.error_400'
+handler403 = 'Proyecto.views.error_403'
+handler404 = 'Proyecto.views.error_404'
+handler500 = 'Proyecto.views.error_500'
 
 
 

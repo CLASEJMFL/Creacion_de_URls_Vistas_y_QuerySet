@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios sin tareas</title>
+</head>
+<body>
+    <h1>Usuarios que no están asignados a ninguna tarea</h1>
+
+    {% if usuarios %}
+        <ul>
+            {% for usuario in usuarios %}
+                <li>
+                    {{ usuario.nombre }} - {{ usuario.correo }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Todos los usuarios están asignados a alguna tarea.</p>
+    {% endif %}
+</body>
+</html>

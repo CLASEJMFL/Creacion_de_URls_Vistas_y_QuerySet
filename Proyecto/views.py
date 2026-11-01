@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Proyecto, Tarea, Asignacion, Comentario, Etiqueta
+from .models import Proyecto, Tarea, Asignacion, Comentario, Etiqueta, Usuario
 
 
 def inicio(request):
@@ -106,3 +106,27 @@ def etiquetas_proyecto(request, proyecto_id):
         'proyecto': proyecto,
         'etiquetas': etiquetas
     })
+    
+def usuarios_sin_tareas(request):
+    usuarios = Usuario.objects.filter(
+        tareas__isnull=True
+    ).order_by('nombre')
+
+    return render(request, 'usuarios_sin_tareas.html', {
+        'usuarios': usuarios
+    })
+
+def error_400(request, exception=None):
+    return render(request, '400.html', status=400)
+
+
+def error_403(request, exception=None):
+    return render(request, '403.html', status=403)
+
+
+def error_404(request, exception=None):
+    return render(request, '404.html', status=404)
+
+
+def error_500(request):
+    return render(request, '500.html', status=500)
