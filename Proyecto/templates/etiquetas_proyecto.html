@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Etiquetas del proyecto</title>
+</head>
+<body>
+    <h1>Etiquetas del proyecto: {{ proyecto.nombre }}</h1>
+
+    {% if etiquetas %}
+        <ul>
+            {% for etiqueta in etiquetas %}
+                <li>{{ etiqueta.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Este proyecto no tiene etiquetas utilizadas en sus tareas.</p>
+    {% endif %}
+</body>
+</html>

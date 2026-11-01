@@ -26,19 +26,56 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('proyectos/', views.lista_proyectos, name='proyectos'),
 
-    # Ejercicio 3: tareas de un proyecto
+    # Ejercicio 3
     path(
         'proyectos/<int:proyecto_id>/tareas/',
         views.tareas_proyecto,
         name='tareas_proyecto'
     ),
 
-    # Ejercicio 4: usuarios asignados a una tarea
+    # Ejercicio 4
     path(
         'tareas/<int:tarea_id>/usuarios/',
         views.usuarios_tarea,
         name='usuarios_tarea'
     ),
+    
+    # Ejercicio5
+    path(
+    'tareas/observaciones/<str:texto>/',
+    views.tareas_por_observacion,
+    name='tareas_por_observacion'
+    ),
+    
+    # Ejercicio 6
+    path(
+        'tareas/completadas/<int:anio_inicio>/<int:anio_fin>/',
+        views.tareas_completadas_por_anio,
+        name='tareas_completadas_por_anio'
+    ),
+    
+    # Ejercicio 7
+    path(
+        'proyectos/<int:proyecto_id>/ultimo-comentario/',
+        views.ultimo_usuario_comentario,
+        name='ultimo_usuario_comentario'
+    ),
+    
+    # Ejercicio 8
+    path(
+        'tareas/<int:tarea_id>/comentarios/<str:palabra>/<int:anio>/',
+        views.comentarios_por_palabra_y_anio,
+        name='comentarios_por_palabra_y_anio'
+    ),
+    
+    # Ejercciio 9
+    path(
+        'proyectos/<int:proyecto_id>/etiquetas/',
+        views.etiquetas_proyecto,
+        name='etiquetas_proyecto'
+    ),
+
+
 ]
 
 

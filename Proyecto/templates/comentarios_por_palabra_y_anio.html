@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comentarios por palabra y año</title>
+</head>
+<body>
+
+    <h1>Comentarios de la tarea: {{ tarea.nombre }}</h1>
+
+    <h2>
+        Comentarios que empiezan por "{{ palabra }}"
+        del año {{ anio }}
+    </h2>
+
+    {% for comentario in comentarios %}
+
+        <p><strong>Usuario:</strong> {{ comentario.usuario.nombre }}</p>
+
+        <p><strong>Comentario:</strong> {{ comentario.texto }}</p>
+
+        <p><strong>Fecha:</strong> {{ comentario.fecha_comentario }}</p>
+
+        <hr>
+
+    {% empty %}
+
+        <p>
+            No se han encontrado comentarios que cumplan
+            las condiciones.
+        </p>
+
+    {% endfor %}
+
+    <a href="/">Volver al inicio</a>
+
+</body>
+</html>

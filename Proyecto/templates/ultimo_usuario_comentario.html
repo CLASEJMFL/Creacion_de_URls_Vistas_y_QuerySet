@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Último usuario comentarista</title>
+</head>
+<body>
+
+    <h1>Último usuario que comentó</h1>
+
+    <h2>Proyecto: {{ proyecto.nombre }}</h2>
+
+    {% if ultimo_comentario %}
+
+        <p>
+            Usuario: {{ ultimo_comentario.usuario.nombre }}
+        </p>
+
+        <p>
+            Correo: {{ ultimo_comentario.usuario.correo }}
+        </p>
+
+        <p>
+            Tarea: {{ ultimo_comentario.tarea.nombre }}
+        </p>
+
+        <p>
+            Comentario: {{ ultimo_comentario.texto }}
+        </p>
+
+        <p>
+            Fecha: {{ ultimo_comentario.fecha_comentario }}
+        </p>
+
+    {% else %}
+
+        <p>Este proyecto todavía no tiene comentarios.</p>
+
+    {% endif %}
+
+    <a href="/">Volver al inicio</a>
+
+</body>
+</html>

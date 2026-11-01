@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas por observaciones</title>
+</head>
+<body>
+
+    <h1>Tareas que contienen "{{ texto }}" en sus observaciones</h1>
+
+    {% for tarea in tareas %}
+        <h2>{{ tarea.nombre }}</h2>
+
+        <p>{{ tarea.descripcion }}</p>
+
+        <p>Estado: {{ tarea.estado }}</p>
+
+        <p>Proyecto: {{ tarea.proyecto.nombre }}</p>
+
+        <h3>Observaciones de las asignaciones:</h3>
+
+        {% for asignacion in tarea.asignaciones.all %}
+            {% if texto|lower in asignacion.observaciones|lower %}
+                <p>
+                    Usuario: {{ asignacion.usuario.nombre }}
+                </p>
+                <p>
+                    Observaciones: {{ asignacion.observaciones }}
+                </p>
+            {% endif %}
+        {% endfor %}
+
+        <hr>
+    {% empty %}
+        <p>No se han encontrado tareas con ese texto en las observaciones.</p>
+    {% endfor %}
+
+    <a href="/">Volver al inicio</a>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas completadas</title>
+</head>
+<body>
+
+    <h1>Tareas completadas entre {{ anio_inicio }} y {{ anio_fin }}</h1>
+
+    {% for tarea in tareas %}
+        <h2>{{ tarea.nombre }}</h2>
+
+        <p>Descripción: {{ tarea.descripcion }}</p>
+        <p>Estado: {{ tarea.estado }}</p>
+        <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
+        <p>Proyecto: {{ tarea.proyecto.nombre }}</p>
+
+        <hr>
+
+    {% empty %}
+        <p>No hay tareas completadas en ese intervalo de años.</p>
+    {% endfor %}
+
+    <a href="/">Volver al inicio</a>
+
+</body>
+</html>
